@@ -320,7 +320,7 @@ MonoBehaviour:
   Vector3Key: SomeVector
   Vector3Value: {x: 65.4545, y: 128.487, z: 231.456}
   QuaternionKey: SomeQuaternion
-  QuaternionValue: {x: 0.0040929075, y: 0.0378649, z: 0.035944168, w: 0.99862784}
+  QuaternionValue: {x: 0.001895532, y: 0.036439843, z: 0.018926779, w: 0.9991548}
 --- !u!4 &1417142720
 Transform:
   m_ObjectHideFlags: 0

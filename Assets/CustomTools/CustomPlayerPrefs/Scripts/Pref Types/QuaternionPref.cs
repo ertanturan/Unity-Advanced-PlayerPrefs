@@ -1,8 +1,9 @@
 namespace CustomTools.CustomPlayerPrefs.Scripts.Pref_Types
 {
+    using System;
     using UnityEngine;
 
-    [SerializeField]
+    [Serializable]
     public class QuaternionPref : BasePref
     {
         public float X, Y, Z, W;

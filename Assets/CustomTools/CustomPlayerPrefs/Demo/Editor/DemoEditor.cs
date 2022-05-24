@@ -12,8 +12,9 @@ namespace CustomTools.CustomPlayerPrefs.Demo.Editor
             base.OnInspectorGUI();
 
             Demo demo = target as Demo;
-
+            GUI.enabled = Application.isPlaying;
             GUILayout.BeginHorizontal();
+            
             if (GUILayout.Button("Save All"))
             {
                 demo.SaveAll();
