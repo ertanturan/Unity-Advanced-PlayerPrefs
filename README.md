@@ -4,9 +4,6 @@ This system is an alternative to Unity's Playerprefs which limits save files up 
 ## Features
 Save and Load ; float, string, int, Vector3 and Quaternion by key.
 
-## Restrictions
-The tool works only while the Application is playing.
-
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
