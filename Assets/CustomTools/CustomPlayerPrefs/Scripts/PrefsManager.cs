@@ -8,6 +8,30 @@ namespace CustomTools.CustomPlayerPrefs.Scripts
 
     public static class PrefsManager
     {
+        public static async Task SaveToJsonAsync<T>(T objectToSerialize, string fullPath)
+        {
+            string jsonString = JsonUtility.ToJson(objectToSerialize, true);
+
+            using (StreamWriter streamWriter = new StreamWriter(fullPath))
+            {
+                await streamWriter.WriteAsync(jsonString);
+            }
+        }
+
+        public static async Task<T> ReadFromJsonAsync<T>(string fullPath)
+        {
+            T returnedValue;
+
+            using (StreamReader streamReader = new StreamReader(fullPath))
+            {
+                string jsonString = await streamReader.ReadToEndAsync();
+                returnedValue = JsonUtility.FromJson<T>(jsonString);
+            }
+
+
+            return returnedValue;
+        }
+
         #region Fields
 
         private const string _EXTENSION = ".json";
@@ -20,11 +44,21 @@ namespace CustomTools.CustomPlayerPrefs.Scripts
 
         #region Operate
 
+        // private static readonly FileStream _Stream =
+        //     new FileStream(_FullPath, FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.None);
+
         [RuntimeInitializeOnLoadMethod]
         private static async void Start()
         {
             CheckIfFileExistCreateIfNot();
             _Prefs = await LoadPrefsIfExists();
+            Application.quitting += OnApplicationQuitting;
+        }
+
+        private static void OnApplicationQuitting()
+        {
+            Debug.Log("quitting");
+            // _Stream.Close();
         }
 
         private static void CheckIfFileExistCreateIfNot()
@@ -37,7 +71,7 @@ namespace CustomTools.CustomPlayerPrefs.Scripts
 
         private static async Task<SerializedPrefs> LoadPrefsIfExists()
         {
-            SerializedPrefs prefs = await Utility.ReadFromJsonAsync<SerializedPrefs>(_FullPath);
+            SerializedPrefs prefs = await ReadFromJsonAsync<SerializedPrefs>(_FullPath);
             if (prefs == null)
             {
                 return new SerializedPrefs();
@@ -49,7 +83,7 @@ namespace CustomTools.CustomPlayerPrefs.Scripts
 
         private static async void Save()
         {
-            await Utility.SaveToJsonAsync(_Prefs, _FullPath);
+            await SaveToJsonAsync(_Prefs, _FullPath);
         }
 
         #endregion
