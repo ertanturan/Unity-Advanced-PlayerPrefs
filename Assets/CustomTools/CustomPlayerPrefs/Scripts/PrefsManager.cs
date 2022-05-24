@@ -44,21 +44,11 @@ namespace CustomTools.CustomPlayerPrefs.Scripts
 
         #region Operate
 
-        // private static readonly FileStream _Stream =
-        //     new FileStream(_FullPath, FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.None);
-
         [RuntimeInitializeOnLoadMethod]
         private static async void Start()
         {
             CheckIfFileExistCreateIfNot();
             _Prefs = await LoadPrefsIfExists();
-            Application.quitting += OnApplicationQuitting;
-        }
-
-        private static void OnApplicationQuitting()
-        {
-            Debug.Log("quitting");
-            // _Stream.Close();
         }
 
         private static void CheckIfFileExistCreateIfNot()
