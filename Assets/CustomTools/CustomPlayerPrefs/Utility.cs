@@ -6,7 +6,7 @@ using UnityEngine;
 
 public static class Utility
 {
-    public static async Task SaveToJson<T>(T objectToSerialize, string fullPath)
+    public static async Task SaveToJsonAsync<T>(T objectToSerialize, string fullPath)
     {
         await Task.Run(delegate
         {
@@ -15,7 +15,7 @@ public static class Utility
         });
     }
 
-    public static async Task<T> ReadFromJson<T>(string fullPath)
+    public static async Task<T> ReadFromJsonAsync<T>(string fullPath)
     {
         T returnedValue = default;
 

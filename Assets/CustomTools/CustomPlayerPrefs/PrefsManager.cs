@@ -31,7 +31,7 @@ namespace CustomTools.CustomPlayerPrefs
 
         private static async Task<SerializedPrefs> LoadPrefsIfExists()
         {
-            SerializedPrefs prefs = await Utility.ReadFromJson<SerializedPrefs>(_FullPath);
+            SerializedPrefs prefs = await Utility.ReadFromJsonAsync<SerializedPrefs>(_FullPath);
             if (prefs == null)
             {
                 return new SerializedPrefs();
@@ -141,7 +141,7 @@ namespace CustomTools.CustomPlayerPrefs
 
         private static async void Save()
         {
-            await Utility.SaveToJson(_Prefs, _FullPath);
+            await Utility.SaveToJsonAsync(_Prefs, _FullPath);
         }
     }
 }
