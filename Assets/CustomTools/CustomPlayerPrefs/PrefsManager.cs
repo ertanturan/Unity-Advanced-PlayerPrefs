@@ -2,6 +2,8 @@ namespace CustomTools.CustomPlayerPrefs
 {
     using System.IO;
     using System.Linq;
+    using System.Threading.Tasks;
+    using Pref_Types;
     using UnityEngine;
 
     public static class PrefsManager
@@ -13,10 +15,10 @@ namespace CustomTools.CustomPlayerPrefs
         private static SerializedPrefs _Prefs;
 
         [RuntimeInitializeOnLoadMethod]
-        private static void Start()
+        private static async void Start()
         {
             CheckIfFileExistCreateIfNot();
-            _Prefs = LoadPrefsIfExists();
+            _Prefs = await LoadPrefsIfExists();
         }
 
         private static void CheckIfFileExistCreateIfNot()
@@ -27,9 +29,9 @@ namespace CustomTools.CustomPlayerPrefs
             }
         }
 
-        private static SerializedPrefs LoadPrefsIfExists()
+        private static async Task<SerializedPrefs> LoadPrefsIfExists()
         {
-            SerializedPrefs prefs = Utility.ReadFromJson<SerializedPrefs>(_FullPath);
+            SerializedPrefs prefs = await Utility.ReadFromJson<SerializedPrefs>(_FullPath);
             if (prefs == null)
             {
                 return new SerializedPrefs();
@@ -48,7 +50,7 @@ namespace CustomTools.CustomPlayerPrefs
             else
             {
                 //the key exists.. overwrite
-                int index = _Prefs.StringPrefs.IndexOf()
+                int index = _Prefs.StringPrefs.IndexOf(a => a.Key == key);
 
                 _Prefs.StringPrefs[index] = new StringPref(key, value);
             }
@@ -137,9 +139,9 @@ namespace CustomTools.CustomPlayerPrefs
             return -1f;
         }
 
-        private static void Save()
+        private static async void Save()
         {
-            Utility.SaveToJson(_Prefs, _FullPath);
+            await Utility.SaveToJson(_Prefs, _FullPath);
         }
     }
 }

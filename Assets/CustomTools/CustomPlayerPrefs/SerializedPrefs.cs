@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using Pref_Types;
 
     [Serializable]
     public class SerializedPrefs
