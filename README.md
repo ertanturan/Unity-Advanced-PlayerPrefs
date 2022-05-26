@@ -1,4 +1,4 @@
-# Unity-PlayerPrefs
+# Unity-Advanced-PlayerPrefs
 This system is an alternative to Unity's Playerprefs which limits save files up to 1MB and only works in admin users. Also can only support float,string and integer.
 
 ## Features
