@@ -55,6 +55,9 @@ Save and Load types by a key value ; float, string, int, Vector3 and Quaternion 
 
         Quaternion loadedQuaternion = key.GetQuaternionPrefs(); // this line will load => rotation quaternion
 ```
+### Get all Current Prefs
+
+![All Prefs](https://user-images.githubusercontent.com/23081722/170513409-5f64bada-4c32-4dfb-b402-c9a5bc46c9e5.png)
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
