@@ -26,6 +26,8 @@
         
         public static async Task SaveToJsonAsync<T>(T objectToSerialize, string fullPath)
         {
+            
+           
             string jsonString = JsonUtility.ToJson(objectToSerialize, true);
 
             using (StreamWriter streamWriter = new StreamWriter(fullPath))
