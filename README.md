@@ -1,5 +1,5 @@
 # Unity-Advanced-PlayerPrefs
-This system is an alternative to Unity's Playerprefs which limits save files up to 1MB, works only in admin users.And limited to only float,string and integer types.
+This system is an alternative to Unity's Playerprefs which limits save files up to 1MB.And limited to only float,string and integer types.
 <br> But this system not only supports float,string and int also supports vector3 and quaternion, not limited to 1MB and works on all user privileges.
 
 
