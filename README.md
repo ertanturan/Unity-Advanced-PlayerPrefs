@@ -2,6 +2,19 @@
 This system is an alternative to Unity's Playerprefs which limits save files up to 1MB, works only in admin users.And limited to only float,string and integer types.
 <br> But this system not only supports float,string and int also supports vector3 and quaternion, not limited to 1MB and works on all user privileges.
 
+
+# Why JSON-based playerprefs over Unity's Built-in Prefs
+
+1. Size: JSON supports larger data sizes, up to 1GB compared to Unity's PlayerPrefs limit of 1MB. You can further increase the limit by disabling pretty print in JSON.
+2. Versatility: JSON's universality means it can be used anywhere that supports it. Plus, you can encrypt JSON data for security.
+3. Backwards Compatibility: Initializing your data in JSON can help maintain backwards compatibility, preventing disruptions to your development plans and ensuring a comfortable user experience.
+4. Data Structure: JSON supports complex data types, unlike PlayerPrefs which only supports integers, floats, and strings.
+5. Readability: JSON's human-readable format aids in debugging and inspecting data.
+6. Portability: JSON files can be easily moved and loaded, making data sharing simpler.
+7. Scalability: JSON can be more efficient than PlayerPrefs when dealing with large data sets.
+8. Error Handling: JSON provides detailed error information, offering superior debugging over PlayerPrefs.
+9. Versioning: JSON supports version information, making it easier to manage changes in data structure.
+
 ## Features
 Save and Load types by a key value ; float, string, int, Vector3 and Quaternion by key.
 
